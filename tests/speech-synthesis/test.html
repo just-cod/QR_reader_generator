@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>speechSynthesis</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: dodgerblue;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 5rem;
+        cursor: pointer;
+        color: #fff0ff;
+        border: 5px solid #fff0ff;
+      }
+      button:hover {
+        background-color: #fff0ff;
+        color: dodgerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="voice1">David</button>
+      <button id="voice2">Ravi</button>
+      <button id="voice3">Heera</button>
+      <button id="voice4">Mark</button>
+      <button id="voice5">Zira</button>
+    </div>
+  </body>
+  <script>
+    const voice1 = document.getElementById("voice1");
+    const voice2 = document.getElementById("voice2");
+    const voice3 = document.getElementById("voice3");
+    const voice4 = document.getElementById("voice4");
+    const voice5 = document.getElementById("voice5");
+    const text = document.getElementById("text");
+    let voice;
+
+    voice1.addEventListener("click", () => {
+      const utterance = new SpeechSynthesisUtterance(
+        `Hello, i am David a voice of speech synthesis`
+      );
+      utterance.voice = speechSynthesis.getVoices()[0];
+      window.speechSynthesis.speak(utterance);
+    });
+
+    voice2.addEventListener("click", () => {
+      const utterance = new SpeechSynthesisUtterance(
+        `Hello, i am Ravi a voice of speech synthesis`
+      );
+      utterance.voice = speechSynthesis.getVoices()[1];
+      window.speechSynthesis.speak(utterance);
+    });
+
+    voice3.addEventListener("click", () => {
+      const utterance = new SpeechSynthesisUtterance(
+        `Hello, i am Heera a voice of speech synthesis`
+      );
+      utterance.voice = speechSynthesis.getVoices()[2];
+      window.speechSynthesis.speak(utterance);
+    });
+
+    voice4.addEventListener("click", () => {
+      const utterance = new SpeechSynthesisUtterance(
+        `Hello, i am Mark a voice of speech synthesis`
+      );
+      utterance.voice = speechSynthesis.getVoices()[3];
+      window.speechSynthesis.speak(utterance);
+    });
+
+    voice5.addEventListener("click", () => {
+      const utterance = new SpeechSynthesisUtterance(
+        `Hello, i am Zira a voice of speech synthesis`
+      );
+      utterance.voice = speechSynthesis.getVoices()[4];
+      window.speechSynthesis.speak(utterance);
+    });
+  </script>
+</html>

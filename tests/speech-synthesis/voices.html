@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Available Voices</title>
+  </head>
+  <body>
+    <button onclick="listVoices()">List Voices</button>
+    <ul id="voiceList"></ul>
+    <script>
+      function listVoices() {
+        const voices = window.speechSynthesis.getVoices();
+        const voiceList = document.getElementById("voiceList");
+        voiceList.innerHTML = "";
+        voices.forEach((voice, index) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${index + 1}: ${voice.name} (${voice.lang})`;
+          voiceList.appendChild(listItem);
+        });
+      }
+
+      // Ensure voices are loaded
+      window.speechSynthesis.onvoiceschanged = listVoices;
+
+      // 1: Microsoft David - English (United States) (en-US)
+      // 2: Microsoft Ravi - English (India) (en-IN)
+      // 3: Microsoft Heera - English (India) (en-IN)
+      // 4: Microsoft Mark - English (United States) (en-US)
+      // 5: Microsoft Zira - English (United States) (en-US)
+    </script>
+  </body>
+</html>
